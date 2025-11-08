@@ -14,7 +14,7 @@ source:
   sha256: d8e02b26b1d5defce139c9459ea1def3e8659916e26b665f3fce8d13cc1839c8
 
 build:
-  number: 0
+  number: 1
   script:
     env:
       TORCH_CUDA_ARCH_LIST: "5.0 6.0 7.0 7.5 8.0 8.6 9.0+PTX"
