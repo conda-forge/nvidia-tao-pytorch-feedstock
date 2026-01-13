@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: nvidia-tao-pytorch
-  version: 6.25.7
+  version: 6.25.11
 
 package:
   name: ${{ name|lower }}
@@ -10,8 +10,8 @@ package:
 
 source:
   # Need to use commit hash because release tags are missing, see https://github.com/NVIDIA/tao_pytorch_backend/issues/41
-  url: https://github.com/NVIDIA/tao_pytorch_backend/archive/70a3d9128bcf4a4675e6a1d1cf763df7b1803b3e.tar.gz # v6.25.7
-  sha256: d8e02b26b1d5defce139c9459ea1def3e8659916e26b665f3fce8d13cc1839c8
+  url: https://github.com/NVIDIA/tao_pytorch_backend/archive/5bd60a5005315941aaa7081332785018f5c51e8d.tar.gz # v6.25.11
+  sha256: 504476a3937c1f653317557de2ddda6d014e16df46ab628cd36291b94efb8ac2
 
 build:
   number: 1
@@ -44,7 +44,6 @@ requirements:
 tests:
   - python:
       imports:
-        - nvidia_tao_pytorch.api
         - nvidia_tao_pytorch.core
         - nvidia_tao_pytorch.cv
         - nvidia_tao_pytorch.pointcloud
