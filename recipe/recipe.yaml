@@ -21,7 +21,7 @@ build:
     content:
       - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip:
-    - cuda_compiler_version == "None" or not linux
+    - cuda_compiler_version == "None" or not linux or match(python, "<3.12")
   string: cuda_${{ cuda_compiler_version | version_to_buildstring }}py${{ python | version_to_buildstring }}h${{ hash }}_${{ build_number }}
 requirements:
   build:
