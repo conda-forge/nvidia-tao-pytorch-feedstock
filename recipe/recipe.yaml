@@ -14,14 +14,14 @@ source:
   sha256: 504476a3937c1f653317557de2ddda6d014e16df46ab628cd36291b94efb8ac2
 
 build:
-  number: 1
+  number: 2
   script:
     env:
-      TORCH_CUDA_ARCH_LIST: "7.0 7.5 8.0 8.6 9.0 10.0 12.0+PTX"
+      TORCH_CUDA_ARCH_LIST: ${{ "7.5 8.0 8.6 8.9 9.0 10.0 12.0+PTX" if match(cuda_compiler_version, ">=13") else "7.0 7.5 8.0 8.6 8.9 9.0 10.0 12.0+PTX" }}
     content:
       - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip:
-    - cuda_compiler_version == "None" or not linux
+    - cuda_compiler_version == "None" or not linux or match(python, "<3.12")
   string: cuda_${{ cuda_compiler_version | version_to_buildstring }}py${{ python | version_to_buildstring }}h${{ hash }}_${{ build_number }}
 requirements:
   build:
