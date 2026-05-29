@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: nvidia-tao-pytorch
-  version: 6.25.11
+  version: "7.0.0"
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 source:
   # Need to use commit hash because release tags are missing, see https://github.com/NVIDIA/tao_pytorch_backend/issues/41
   url: https://github.com/NVIDIA/tao_pytorch_backend/archive/5bd60a5005315941aaa7081332785018f5c51e8d.tar.gz # v6.25.11
-  sha256: 504476a3937c1f653317557de2ddda6d014e16df46ab628cd36291b94efb8ac2
+  sha256: f3fea8dac721087eeae3c0bbf179c01a9740313acadbb002678b8ba5e89b890b
 
 build:
-  number: 2
+  number: 0
   script:
     env:
       TORCH_CUDA_ARCH_LIST: ${{ "7.5 8.0 8.6 8.9 9.0 10.0 12.0+PTX" if match(cuda_compiler_version, ">=13") else "7.0 7.5 8.0 8.6 8.9 9.0 10.0 12.0+PTX" }}
