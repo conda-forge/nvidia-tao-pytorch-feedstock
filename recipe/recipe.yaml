@@ -9,9 +9,8 @@ package:
   version: ${{ version }}
 
 source:
-  # Need to use commit hash because release tags are missing, see https://github.com/NVIDIA/tao_pytorch_backend/issues/41
-  url: https://github.com/NVIDIA/tao_pytorch_backend/archive/5bd60a5005315941aaa7081332785018f5c51e8d.tar.gz # v6.25.11
-  sha256: f3fea8dac721087eeae3c0bbf179c01a9740313acadbb002678b8ba5e89b890b
+  url: https://github.com/NVIDIA-TAO/tao-pytorch/archive/refs/tags/${{ version }}.tar.gz
+  sha256: fd75265104c50202c544397c18363a1c71e61e765d462932a3d439ae5d722965
 
 build:
   number: 0
@@ -46,6 +45,7 @@ tests:
       imports:
         - nvidia_tao_pytorch.core
         - nvidia_tao_pytorch.cv
+        - nvidia_tao_pytorch.multimodal
         - nvidia_tao_pytorch.pointcloud
         - nvidia_tao_pytorch.pruning
         - nvidia_tao_pytorch.sdg
@@ -53,7 +53,7 @@ tests:
       pip_check: true
 
 about:
-  homepage: https://github.com/NVIDIA/tao_pytorch_backend
+  homepage: https://github.com/NVIDIA-TAO/tao-pytorch
   summary: TAO Toolkit deep learning networks with PyTorch backend
   license: Apache-2.0
   license_file: LICENSE
