@@ -3,7 +3,7 @@ About nvidia-tao-pytorch-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nvidia-tao-pytorch-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/NVIDIA/tao_pytorch_backend
+Home: https://github.com/NVIDIA-TAO/tao-pytorch
 
 Package license: Apache-2.0
 
